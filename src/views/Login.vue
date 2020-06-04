@@ -139,6 +139,11 @@ export default {
     showLogin() {
       this.flag = true;
     }
+  },
+  mounted() {
+    if (this.$route.query.action) {
+      this.flag = false;
+    }
   }
 };
 </script>
@@ -233,6 +238,7 @@ export default {
                 }
                 .el-button {
                   width: 287px;
+                  background: #fd5810;
                 }
               }
             }

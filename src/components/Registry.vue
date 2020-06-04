@@ -22,7 +22,7 @@
                 el-input(suffix-icon="el-icon-user" v-model="form.email" autocomplete="on" type='text')
             el-form-item(label="手机" :rules="[{ required: true}]")
                 el-input(suffix-icon="el-icon-user" v-model="form.mobile" autocomplete="on" type='text')
-        el-button(type="warning" style='margin-left:100px') 注册
+        el-button(type="warning" style='margin-left:100px') 立即注册
 </template>
 <script>
 export default {
@@ -48,5 +48,3 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-</style>
