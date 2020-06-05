@@ -31,9 +31,9 @@
                                         span(@click='jump("registry")') 立即注册
                                 el-form(label-width="100px")
                                     el-form-item(label="用户名")
-                                       el-input(suffix-icon="el-icon-user" v-model="form.account" autocomplete="on" type='text')
+                                       el-input(suffix-icon="el-icon-user" v-model="form.account" autocomplete="off" type='text')
                                     el-form-item(label="密码")
-                                       el-input(suffix-icon="el-icon-lollipop" v-model="form.password" autocomplete="on" type='password')
+                                       el-input(suffix-icon="el-icon-lollipop" v-model="form.password" autocomplete="off" type='password')
                                 el-button(type="warning" style='margin-left:100px') 登录
                             registry(@showLogin='showLogin' v-if='!flag')
         div.bottom
