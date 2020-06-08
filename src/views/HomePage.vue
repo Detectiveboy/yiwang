@@ -18,7 +18,7 @@
         div.container
           div.search
             div.logo
-              img(src='../assets/logo.png')
+              img(src='../assets/logo.png' style='cursor:pointer;' @click='jumpHome')
             div.sousuo
               el-input(type='text' v-model='searchVal')
                 el-button(slot="append") 搜索
@@ -37,7 +37,7 @@
                   span 共计
                   span {{`￥${price===0? '':price}`}}
                 el-button(type="warning") {{!!user.account? '去结算':'去登陆'}}
-          div.nav
+          div.nav(v-if='!manage')
             div.left
               div.showDowm 全部商品分类
               ul
@@ -48,32 +48,116 @@
             shopshow(v-if='shopshow')
             classify(v-if='classify')
             detail(v-if='detail')
+            manage(v-if='manage')
       div.bottom
-          div.container
-              p 备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com Copyright  2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group
+          div.list
+            div.container
               ul
                 li
-                  img(src='../assets/b_1.gif')
+                  div.img
+                    img(src='../assets/b1.png')
+                  div.text
+                    p 正品保障
+                    p {{`正品行货 放心购买`}}
                 li
-                  img(src='../assets/b_2.gif')
+                  div.img
+                    img(src='../assets/b2.png')
+                  div.text
+                    p 满38包邮
+                    p {{`满38包邮 免运费`}}
                 li
-                  img(src='../assets/b_3.gif')
+                  div.img
+                    img(src='../assets/b3.png')
+                  div.text
+                    p 天天低价
+                    p {{`天天低价 畅选无忧`}}
                 li
-                  img(src='../assets/b_4.gif')
-                li
-                  img(src='../assets/b_5.gif')
-                li
-                  img(src='../assets/b_6.gif')
+                  div.img
+                    img(src='../assets/b4.png')
+                  div.text
+                    p 准时送达
+                    p {{`收货时间由你做主`}}
+          div.link
+            div.container
+              el-row
+                el-col(:span='18')
+                  ul
+                    li
+                      ul
+                        li 新手上路
+                        li 售后流程
+                        li 购物流程
+                        li 订购方式
+                        li 隐私声明
+                        li 推荐分享说明
+                    li
+                      ul
+                        li 配送与支付
+                        li 货到付款区域
+                        li 配送支付查询
+                        li 支付方式说明
+                    li
+                      ul
+                        li 会员中心
+                        li 资金管理
+                        li 我的收藏
+                        li 我的订单
+                    li
+                      ul
+                        li 服务保证
+                        li 退换货原则
+                        li 售后服务保证
+                        li 产品质量保证
+                    li
+                      ul
+                        li 联系我们
+                        li 网站故障报告
+                        li 购物咨询
+                        li 投诉与建议
+                el-col(:span='6')
+                  div.saoma
+                    img(src='../assets/er.gif')
+                    br
+                    img(src='../assets/ss.png')
+                  div.info
+                    div.license
+                      p
+                        i(class='el-icon-lollipop')
+                        span 新浪微博
+                      p 
+                        i(class='el-icon-lollipop')
+                        span 腾讯微博
+                    div.phone
+                      p 服务热线：
+                      p 400-123-4567
+          div.copyright
+            div.container
+                p 备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com Copyright  2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group
+                ul
+                  li
+                    img(src='../assets/b_1.gif')
+                  li
+                    img(src='../assets/b_2.gif')
+                  li
+                    img(src='../assets/b_3.gif')
+                  li
+                    img(src='../assets/b_4.gif')
+                  li
+                    img(src='../assets/b_5.gif')
+                  li
+                    img(src='../assets/b_6.gif')
 </template>
 <script>
 import shopshow from "@/components/Shopshow.vue";
 import classify from "@/components/Classify.vue";
 import detail from "@/components/Detail.vue";
+import manage from "@/components/Manage.vue";
 export default {
   components: {
     shopshow,
     classify,
-    detail
+    detail,
+    manage
   },
   data() {
     return {
@@ -151,9 +235,10 @@ export default {
         { name: "保健商品" },
         { name: "箱包" }
       ],
-      shopshow: true,
+      shopshow: false,
       classify: false,
-      detail: false
+      detail: false,
+      manage: true
     };
   },
   methods: {
@@ -168,6 +253,9 @@ export default {
           }
         });
       }
+    },
+    jumpHome() {
+      this.shopshow = true;
     }
   },
   mounted() {
@@ -222,6 +310,7 @@ export default {
     }
   }
   .tagAge {
+    background: #ffffff;
     .search {
       display: flex;
       height: 150px;
@@ -336,15 +425,121 @@ export default {
       }
     }
   }
-  .bottom {
-    padding: 10px 0;
+  .middle {
     background: #f6f6f6;
-    p {
-      text-align: center;
-      font-size: 13px;
-      color: #999999;
+  }
+  .bottom {
+    background: #f6f6f6;
+    .list {
+      background: #fff;
+      ul {
+        height: 80px;
+        display: flex;
+        padding: 30px 10px;
+        li {
+          flex: 1;
+          display: flex;
+          .img {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 5px;
+          }
+          .text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            p:nth-child(1) {
+              font-size: 16px;
+              flex: 1;
+              display: flex;
+              align-items: flex-end;
+              margin-bottom: 5px;
+            }
+            p:nth-child(2) {
+              font-size: 14px;
+              color: #beb9b9;
+              flex: 1;
+              display: flex;
+              align-items: flex-start;
+            }
+          }
+        }
+      }
     }
-    .container {
+    .link {
+      border-bottom: 1px solid rgb(212, 208, 208);
+      padding: 30px 0;
+      .el-row {
+        .el-col:nth-child(1) > ul {
+          display: flex;
+        }
+        .el-col:nth-child(1) > ul > li {
+          flex: 1;
+          ul > li:nth-child(1) {
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 16px;
+          }
+          ul > li:nth-child(1):hover {
+            text-decoration: underline;
+          }
+          ul > li:not(:nth-child(1)) {
+            font-size: 13px;
+            cursor: pointer;
+            color: rgb(194, 186, 186);
+            margin-bottom: 10px;
+          }
+          ul > li:not(:nth-child(1)):hover {
+            color: #ff6724;
+          }
+        }
+        .el-col:nth-child(2) {
+          display: flex;
+          .saoma {
+            flex: 5;
+          }
+          .info {
+            flex: 5;
+            .license {
+              p {
+                height: 30px;
+                line-height: 30px;
+                color: rgb(194, 186, 186);
+                cursor: pointer;
+                i{
+                  font-size: 20px;
+                  position: relative;
+                  top: 5px;
+                }
+              }
+              p:hover {
+                color: #ff739f;
+              }
+            }
+            .phone {
+              margin-top: 20px;
+              p:nth-child(1) {
+                font-size: 14px;
+                color: rgb(194, 186, 186);
+              }
+              p:nth-child(2) {
+                font-size: 20px;
+                color: #ff739f;
+              }
+            }
+          }
+        }
+      }
+    }
+    .copyright {
+      background: #fff;
+      p {
+        text-align: center;
+        font-size: 13px;
+        color: #999999;
+      }
       ul {
         width: 60%;
         margin: 20px auto 30px;
