@@ -5,10 +5,10 @@ import store from './store'
 import Axios from 'axios'//引入axios
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-// import './assets/style/style.css'
+import './assets/css/iconfont.css'
 Vue.config.productionTip = false
 
-// Axios.withCredentails=true
+Axios.withCredentails = true
 
 Vue.prototype.Axios = Axios   // 配置axios
 Vue.use(ElementUI) //配置element-ui

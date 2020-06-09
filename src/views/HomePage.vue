@@ -20,7 +20,7 @@
             div.logo
               img(src='../assets/logo.png' style='cursor:pointer;' @click='jumpHome')
             div.sousuo
-              el-input(type='text' v-model='searchVal')
+              el-input(type='text' v-model='searchVal' v-if='!manage')
                 el-button(slot="append") 搜索
             div.select
               span(class="el-dropdown-link")
@@ -37,7 +37,8 @@
                   span 共计
                   span {{`￥${price===0? '':price}`}}
                 el-button(type="warning") {{!!user.account? '去结算':'去登陆'}}
-          div.nav(v-if='!manage')
+        div.nav(v-if='!manage')
+          div.container
             div.left
               div.showDowm 全部商品分类
               ul
@@ -122,10 +123,10 @@
                   div.info
                     div.license
                       p
-                        i(class='el-icon-lollipop')
+                        i(class='iconfont' v-html='`&#xe60c;`')
                         span 新浪微博
                       p 
-                        i(class='el-icon-lollipop')
+                        i(class='iconfont' v-html='`&#xe620;`')
                         span 腾讯微博
                     div.phone
                       p 服务热线：
@@ -356,6 +357,7 @@ export default {
           border: 1px solid rgb(212, 207, 207);
           background: #fff;
           width: 250px;
+          z-index: 2;
           p:nth-child(1) {
             height: 60px;
             line-height: 60px;
@@ -508,10 +510,10 @@ export default {
                 line-height: 30px;
                 color: rgb(194, 186, 186);
                 cursor: pointer;
-                i{
+                i {
                   font-size: 20px;
                   position: relative;
-                  top: 5px;
+                  top: 2px;
                 }
               }
               p:hover {

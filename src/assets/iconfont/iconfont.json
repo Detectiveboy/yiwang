@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "21553",
+      "name": "微博",
+      "font_class": "weibo",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "922934",
+      "name": "新浪",
+      "font_class": "xinlang",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "2890684",
+      "name": "订单中心",
+      "font_class": "dingdanzhongxin",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "7911906",
+      "name": "用户中心",
+      "font_class": "yonghuzhongxin",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "11658220",
+      "name": "管理中心",
+      "font_class": "guanlizhongxin",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    }
+  ]
+}
