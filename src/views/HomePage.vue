@@ -151,9 +151,9 @@ export default {
         { name: "保健商品" },
         { name: "箱包" }
       ],
-      shopshow: true,
+      shopshow: false,
       classify: false,
-      detail: false
+      detail: true
     };
   },
   methods: {
