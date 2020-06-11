@@ -8,4 +8,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.classify{
+    height: 412px;
+    // display: flex;
+}
 </style>
