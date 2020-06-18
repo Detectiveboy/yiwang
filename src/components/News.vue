@@ -3,7 +3,9 @@
         h1 news
 </template>
 <script>
-export default {};
+export default {
+    name:'news'
+};
 </script>
 <style lang="scss" scoped>
 </style>

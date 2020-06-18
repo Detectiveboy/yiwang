@@ -34,6 +34,7 @@
 </template>
 <script>
 export default {
+  name: "manage",
   methods: {
     jumpHandle(target, parameter) {
       this.$router.push({
@@ -43,7 +44,7 @@ export default {
         }
       });
     }
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

@@ -6,7 +6,9 @@
             div.news
 </template>
 <script>
-export default {};
+export default {
+  name:'shopshow'
+};
 </script>
 <style lang="scss" scoped>
 .shopshow {

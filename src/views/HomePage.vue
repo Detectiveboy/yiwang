@@ -260,14 +260,16 @@ export default {
     }
   },
   mounted() {
-    let elInput = document.querySelectorAll(".el-input input")[0];
-    elInput.style.borderColor = "#FF4E00";
-    let elAppend = document.querySelectorAll(
-      ".el-input-group__append button"
-    )[0];
-    elAppend.style.background = "#FF4E00";
-    elAppend.style.color = "#fff";
-    elAppend.style.borderRadius = "0%";
+    if (!this.manage) {
+      let elInput = document.querySelectorAll(".el-input input")[0];
+      elInput.style.borderColor = "#FF4E00";
+      let elAppend = document.querySelectorAll(
+        ".el-input-group__append button"
+      )[0];
+      elAppend.style.background = "#FF4E00";
+      elAppend.style.color = "#fff";
+      elAppend.style.borderRadius = "0%";
+    }
   },
   computed: {
     price() {
